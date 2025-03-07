@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Maja</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to top, #5A9BF6, #B0E0E6);
+            overflow: hidden;
+        }
+        @keyframes moveCloud {
+            0% { transform: translateX(-150px); }
+            100% { transform: translateX(350px); }
+        }
+        @keyframes moveSun {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes smoke {
+            0% { opacity: 0.5; transform: translateY(0) scale(1); }
+            50% { opacity: 0.3; transform: translateY(-10px) scale(1.1); }
+            100% { opacity: 0; transform: translateY(-20px) scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <svg width="400" height="400" viewBox="0 0 200 200">
+        <!-- Päike -->
+        <circle cx="160" cy="40" r="20" fill="yellow" style="animation: moveSun 5s linear infinite alternate;" />
+        
+        <!-- Ilusamad pilved -->
+        <g fill="white" opacity="0.8" style="animation: moveCloud 10s linear infinite alternate;">
+            <circle cx="30" cy="30" r="15" />
+            <circle cx="45" cy="25" r="20" />
+            <circle cx="60" cy="30" r="15" />
+            <circle cx="50" cy="40" r="18" />
+        </g>
+        
+        <g fill="white" opacity="0.8" style="animation: moveCloud 12s linear infinite alternate;">
+            <circle cx="100" cy="20" r="12" />
+            <circle cx="115" cy="15" r="17" />
+            <circle cx="130" cy="20" r="12" />
+            <circle cx="120" cy="30" r="15" />
+        </g>
+        
+        <!-- Muru -->
+        <rect x="0" y="160" width="200" height="40" fill="green" />
+
+        <!-- Korsten katuse taga -->
+        <rect x="65" y="35" width="15" height="30" fill="#6B688F" />
+ 
+        <!-- Katus -->
+        <polygon points="50,80 150,80 100,20" fill="#41475B" />
+    
+        <!-- Suits -->
+        <g fill="lightgray" opacity="0.5">
+            <circle cx="72" cy="30" r="5" style="animation: smoke 3s infinite;" />
+            <circle cx="75" cy="25" r="4" style="animation: smoke 3s 0.5s infinite;" />
+            <circle cx="78" cy="20" r="3" style="animation: smoke 3s 1s infinite;" />
+        </g>
+        
+        <!-- Maja tellistest -->
+        <pattern id="brickPattern" width="10" height="5" patternUnits="userSpaceOnUse">
+            <rect width="10" height="5" fill="#B21817" />
+            <line x1="5" y1="0" x2="5" y2="5" stroke="#8B0000" stroke-width="1" />
+        </pattern>
+        <rect x="60" y="80" width="80" height="80" fill="url(#brickPattern)" />
+        
+        <!-- Aken -->
+        <rect x="70" y="100" width="25" height="25" fill="#2D2926" stroke="white" stroke-width="2" />
+        
+        <!-- Uks -->
+        <rect x="110" y="100" width="25" height="60" fill="#6B688F" stroke="white" stroke-width="2" />
+        
+        <!-- Ukse käepide -->
+        <circle cx="130" cy="130" r="2.5" fill="black" />
+        
+    </svg>
+</body>
+</html>
